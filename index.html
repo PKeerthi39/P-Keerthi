@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products" onclick="showSection('products')">Products</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#about" onclick="showSection('about')">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home" class="store-title">
+            <h1>Welcome to the Book Store</h1>
+        </div>
+
+        <section id="products" class="product-section" style="display:none;">
+            <div class="product">
+                <img src="C:\Users\keert\OneDrive\Desktop\mian\book11.jpg"
+                <h3>Book 1</h3>
+                <p>$10.00</p>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\keert\OneDrive\Desktop\mian\book2.jpg"
+                <h3>Book 2</h3>
+                <p>$15.00</p>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\keert\OneDrive\Desktop\mian\book3.jpg"
+                <h3>Book 3</h3>
+                <p>$20.00</p>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\keert\OneDrive\Desktop\mian\book4.jpg"
+                <h3>Book 4</h3>
+                <p>$25.00</p>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section" style="display:none;">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:info@bookstore.com">info@bookstore.com</a></p>
+            <p>Address: 123 Book Street, Book City, BC 12345</p>
+        </section>
+
+        <section id="about" class="about-section" style="display:none;">
+            <h2>About Us</h2>
+            <p>Welcome to the Book Store! We offer a wide variety of books across genres, ensuring there is something for everyone. Our store is dedicated to bringing you the best reads, offering both physical and digital books at affordable prices.</p>
+            <p>Address: 123 Book Street, Book City, BC 12345</p>
+        </section>
+    </main>
+
+    <footer>
+        <button class="shop-now">Shop Now</button>
+    </footer>
+
+    <script>
+        let cartCount = 0;  // Initialize cart count
+
+        // Function to show the correct section
+        function showSection(section) {
+            // Hide all sections
+            document.getElementById('products').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+
+            // Show the selected section
+            if (section === 'products') {
+                document.getElementById('products').style.display = 'block';
+            } else if (section === 'contact') {
+                document.getElementById('contact').style.display = 'block';
+            } else if (section === 'about') {
+                document.getElementById('about').style.display = 'block';
+            } else {
+                document.getElementById('home').style.display = 'block';
+            }
+        }
+
+        // Function to add products to the cart
+        function addToCart() {
+            cartCount++;  // Increment the cart count
+            document.getElementById('cart-count').textContent = cartCount;  // Update the cart count in the header
+        }
+
+        // Initialize by showing the home section
+        showSection('home');
+    </script>
+</body>
+</html>
